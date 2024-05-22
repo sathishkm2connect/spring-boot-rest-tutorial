@@ -8,4 +8,4 @@ WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 
-RUN mvn package spring-boot:repackage -DskipTests=true
+CMD ["mvn","package","spring-boot:repackage","-DskipTests=true"]
