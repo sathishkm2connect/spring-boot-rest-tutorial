@@ -1,0 +1,13 @@
+# Use an official OpenJDK runtime as a parent image
+FROM maven:3.8.4-openjdk-17 AS build
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the Maven build file and the source code into the container
+COPY pom.xml .
+COPY build ./build
+
+EXPOSE 8000
+
+CMD ["java", "-jar","-Dspring.datasource.url=jdbc:mysql://host.docker.internal:3306/hr_prod","-Dspring.profiles.active=prod","/app/build/SpringBootRestTutorial-0.0.1-SNAPSHOT.jar"]

@@ -9,4 +9,4 @@ COPY pom.xml .
 COPY src ./src
 
 # Run Maven tests
-RUN mvn test
+CMD ["mvn","test"]
