@@ -9,6 +9,4 @@ COPY pom.xml .
 COPY src ./src
 
 # Run Maven tests
-RUN mvn surefire-report:report
-
-RUN mvn package spring-boot:repackage -DskipTests=true
+RUN mvn test
