@@ -1,0 +1,14 @@
+# Use an official OpenJDK runtime as a parent image
+FROM maven:3.8.4-openjdk-17 AS build
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the Maven build file and the source code into the container
+COPY pom.xml .
+COPY src ./src
+
+# Run Maven tests
+RUN mvn surefire-report:report
+
+RUN mvn package spring-boot:repackage -DskipTests=true

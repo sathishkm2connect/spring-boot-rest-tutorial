@@ -1,0 +1,7 @@
+.git
+.idea
+.vscode
+.settings
+logs
+target
+surefire-reports
